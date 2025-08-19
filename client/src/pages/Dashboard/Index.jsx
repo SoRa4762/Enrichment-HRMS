@@ -4,6 +4,7 @@ import { faUsers } from "@fortawesome/free-solid-svg-icons";
 import { faUserAlt } from "@fortawesome/free-solid-svg-icons";
 import { faClipboardList } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { Link, Outlet } from "react-router-dom";
 const index = () => {
   return (
     <div className="h-full w-full flex flex-col">
@@ -26,38 +27,38 @@ const index = () => {
       <div className="flex h-[85vh] w-full">
         {/* Sidebar */}
         <div className="flex-1 flex flex-col border border-white bg-blue-300 p-4">
-          <a
-            href="dashboard/employees"
-            className="text-white text-xl font-semibold"
+          <Link
+            to="employees"
+            className="text-white text-xl font-semibold pb-1 hover:border-b-2 hover:border-b-blue-500"
           >
             <FontAwesomeIcon icon={faUsers} />
             <span className="pl-2">Employees</span>
-          </a>
-          <a
-            href="dashboard/users"
-            className="text-white text-xl font-semibold"
+          </Link>
+          <Link
+            to="department"
+            className="text-white text-xl font-semibold pb-1 hover:border-b-2 hover:border-b-blue-500"
           >
             <FontAwesomeIcon icon={faUserAlt} />
-            <span className="pl-2">Users</span>
-          </a>
-          <a
-            href="dashboard/attendance"
-            className="text-white text-xl font-semibold"
+            <span className="pl-2">Department</span>
+          </Link>
+          <Link
+            to="attendance"
+            className="text-white text-xl font-semibold pb-1 hover:border-b-2 hover:border-b-blue-500"
           >
             <FontAwesomeIcon icon={faClipboardList} />
             <span className="pl-2">Attendance</span>
-          </a>
-          <a
-            href="dashboard/leave"
-            className="text-white text-xl font-semibold"
+          </Link>
+          <Link
+            to="dashboard/leave"
+            className="text-white text-xl font-semibold pb-1 hover:border-b-2 hover:border-b-blue-500"
           >
             <FontAwesomeIcon icon={faArrowRightFromBracket} />
             <span className="pl-2">Leave</span>
-          </a>
+          </Link>
         </div>
         {/* Main Component */}
-        <div className="flex-3 border border-white p-4">
-          This is main component
+        <div className="flex-5 border border-white p-4">
+          <Outlet />
         </div>
       </div>
     </div>
